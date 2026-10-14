@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fff0f5" />
+  <meta name="description" content="Una sorpresa hecha con mucho amor por Isaí para Tania." />
+  <title>Para Tania, con amor de Isaí 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="decor decor-1" aria-hidden="true"></div>
+  <div class="decor decor-2" aria-hidden="true"></div>
+
+  <main class="card" aria-live="polite">
+    <div class="love-seal" aria-hidden="true">I ♡ T</div>
+    <section class="screen is-active" data-screen="question">
+      <div class="emoji" aria-hidden="true">💌</div>
+      <p class="eyebrow">Una sorpresa de Isaí para Tania</p>
+      <h1 id="question-title">Tania, ¿tenemos una cita?</h1>
+      <p id="question-hint" class="subtitle">Porque incluso siendo mi novia, me sigue emocionando invitarte a una cita. 💗</p>
+
+      <div class="actions">
+        <button id="yes-button" class="button button-primary" type="button">Sí 💖</button>
+        <span id="no-placeholder" class="no-placeholder">
+          <button id="no-button" class="button button-secondary" type="button">No</button>
+        </span>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="plans" hidden>
+      <div class="emoji" aria-hidden="true">🥳</div>
+      <p class="eyebrow">¡Sabía que dirías que sí, mi amor!</p>
+      <h2>Tania, ¿qué hacemos juntos?</h2>
+      <p class="subtitle">Lo mejor del plan siempre va a ser pasar tiempo contigo. ♡</p>
+
+      <div class="plans">
+        <button class="plan" data-plan="Café" data-emoji="☕" type="button"><span>☕</span><strong>Café</strong><small>Para platicar de todo</small></button>
+        <button class="plan" data-plan="Cena" data-emoji="🍝" type="button"><span>🍝</span><strong>Cena</strong><small>Una noche para nosotros</small></button>
+        <button class="plan" data-plan="Helado" data-emoji="🍦" type="button"><span>🍦</span><strong>Helado</strong><small>Y caminar de la mano</small></button>
+        <button class="plan" data-plan="Sorpresa" data-emoji="✨" type="button"><span>✨</span><strong>Sorpresa</strong><small>Preparada con cariño</small></button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="calendar" hidden>
+      <div class="emoji" aria-hidden="true">📅</div>
+      <p class="eyebrow">Nuestra próxima aventura</p>
+      <h2>¿Qué día nos escapamos, Tania?</h2>
+      <p id="calendar-plan" class="subtitle"></p>
+      <form id="calendar-form" class="calendar-form">
+        <label for="date-input">Elige una fecha</label>
+        <input id="date-input" type="date" required />
+        <label for="time-input">Elige una hora</label>
+        <input id="time-input" type="time" value="18:00" required />
+        <button id="confirm-button" class="button button-primary" type="submit">Guardar nuestra cita 💌</button>
+      </form>
+      <button id="back-to-plans" class="link-button" type="button">Cambiar el plan</button>
+    </section>
+
+    <section class="screen" data-screen="final" hidden>
+      <div id="final-emoji" class="emoji" aria-hidden="true">✨</div>
+      <p class="eyebrow">Una cita más para recordar</p>
+      <h2>¡Qué bonito seguir eligiéndonos! 💖</h2>
+      <p id="final-message" class="subtitle"></p>
+      <a id="calendar-download" class="button button-primary calendar-download" download="nuestra-cita.ics" href="#">📅 Agregar al calendario</a>
+      <button id="share-button" class="button button-primary" type="button">Compartir respuesta</button>
+      <p class="signature">Con todo mi amor, <strong>Isaí ♡</strong></p>
+      <button id="restart-button" class="link-button" type="button">Volver a empezar</button>
+    </section>
+  </main>
+
+  <p class="footer-note">Hecho con ♡ por Isaí, solo para Tania</p>
+  <p id="status" class="status" role="status"></p>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>

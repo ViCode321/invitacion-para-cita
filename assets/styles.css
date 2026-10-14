@@ -1,0 +1,223 @@
+:root {
+  --ink: #3d2341;
+  --muted: #725c76;
+  --bg: #fff2f5;
+  --card: rgba(255, 255, 255, 0.82);
+  --primary: #ef7197;
+  --primary-dark: #e85177;
+  --accent: #ffc8db;
+  --border: #3d2341;
+  --shadow: 0 24px 70px rgba(92, 38, 81, 0.16);
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  padding: 24px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, #ffe1a8 0, transparent 34%),
+    radial-gradient(circle at bottom right, #ffc9d8 0, transparent 34%),
+    var(--bg);
+  font-family: "Nunito", system-ui, sans-serif;
+}
+
+button { font: inherit; }
+
+.card {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 680px);
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  padding: clamp(28px, 6vw, 56px);
+  border: 2px solid rgba(61, 35, 65, 0.16);
+  border-radius: 34px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.screen {
+  width: 100%;
+  text-align: center;
+  animation: enter .3s ease both;
+}
+
+.screen[hidden] { display: none; }
+
+.emoji {
+  margin-bottom: 10px;
+  font-size: clamp(56px, 11vw, 88px);
+  line-height: 1;
+  filter: drop-shadow(0 8px 16px rgba(61, 35, 65, 0.12));
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--primary-dark);
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+h1, h2 {
+  margin: 0;
+  font-family: "Fredoka", system-ui, sans-serif;
+  line-height: 1.02;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 4.6rem); }
+h2 { font-size: clamp(2.2rem, 7vw, 4rem); }
+
+.subtitle {
+  max-width: 510px;
+  margin: 18px auto 30px;
+  color: var(--muted);
+  font-size: clamp(1rem, 3vw, 1.18rem);
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-height: 64px;
+}
+
+.button {
+  min-width: 130px;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  padding: 14px 28px;
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 0 var(--border);
+  transition: transform .14s ease, box-shadow .14s ease, background .14s ease;
+}
+
+.button:hover { transform: translateY(-2px); }
+.button:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--border); }
+.button-primary { background: var(--accent); }
+.button-secondary { background: #fff; }
+
+.no-placeholder { display: inline-flex; }
+
+#no-button.is-running {
+  position: fixed;
+  z-index: 50;
+  transition: left .2s cubic-bezier(.2, .9, .3, 1.25), top .2s cubic-bezier(.2, .9, .3, 1.25);
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.plan {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  min-height: 152px;
+  padding: 20px 14px;
+  border: 2px solid rgba(61, 35, 65, .85);
+  border-radius: 24px;
+  color: var(--ink);
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 5px 0 rgba(61, 35, 65, .9);
+  cursor: pointer;
+  transition: transform .14s ease, background .14s ease, box-shadow .14s ease;
+}
+
+.plan:hover { transform: translateY(-3px); background: #fff8d9; }
+.plan:active { transform: translateY(3px); box-shadow: 0 2px 0 rgba(61, 35, 65, .9); }
+.plan span { font-size: 2.5rem; }
+.plan strong { font-size: 1.12rem; }
+.plan small { color: var(--muted); }
+
+.link-button {
+  display: block;
+  margin: 22px auto 0;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.status {
+  position: fixed;
+  z-index: 60;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.decor {
+  position: fixed;
+  z-index: 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  opacity: .4;
+  filter: blur(2px);
+}
+.decor-1 { top: -80px; right: -60px; background: #ff8fab; }
+.decor-2 { bottom: -90px; left: -70px; background: #ffd166; }
+
+:focus-visible { outline: 4px solid #7b61ff; outline-offset: 4px; }
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(10px) scale(.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 540px) {
+  body { padding: 14px; }
+  .card { min-height: 500px; border-radius: 26px; padding: 30px 18px; }
+  .plans { grid-template-columns: 1fr; }
+  .plan { min-height: 118px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+
+.calendar-form { display: grid; gap: 10px; width: min(100%, 360px); margin: 0 auto; text-align: left; }
+.calendar-form label { font-size: .95rem; font-weight: 800; }
+.calendar-form input {
+  width: 100%; border: 2px solid rgba(61,35,65,.4); border-radius: 14px;
+  background: #fff; color: var(--ink); padding: 13px 14px; font: inherit;
+}
+.calendar-form button { margin-top: 16px; }
+.calendar-form button:disabled { opacity: .65; cursor: wait; }
+.calendar-download { display: inline-block; text-decoration: none; margin-bottom: 12px; }
+#share-button { display: block; margin: 0 auto; }
+
+/* Detalles especiales de Isaí para Tania */
+.card { border: 2px solid rgba(227, 121, 154, .32); padding-top: clamp(52px, 7vw, 72px); }
+.love-seal { position: absolute; top: 16px; right: 22px; font-family: "Fredoka", system-ui, sans-serif; font-size: .9rem; color: #ba416c; background: #ffe1ea; padding: 8px 12px; border-radius: 999px; transform: rotate(7deg); }
+.signature { margin: 18px auto 2px; color: #ba416c; font-family: "Fredoka", system-ui, sans-serif; font-size: 1.2rem; }
+.signature strong { font-size: 1.4rem; }
+.footer-note { position: fixed; z-index: 1; bottom: 34px; left: 12px; right: 12px; text-align: center; font-size: .82rem; color: #a45674; pointer-events: none; }
+body { padding-bottom: 70px; background: radial-gradient(circle at 10% 7%, #ffe0e9 0, transparent 39%), radial-gradient(circle at 90% 85%, #f8c9d9 0, transparent 37%), #fff2f5; }
+.decor-1 { background: #ffb0c9; }
+.decor-2 { background: #edbbd6; }
+@media (max-width: 540px) { .card { padding-top: 62px; } .footer-note { bottom: 26px; } }
